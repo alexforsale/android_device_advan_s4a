@@ -13,9 +13,9 @@
 # limitations under the License.
 
 # mount point		fstype		device			[device2]
-/boot			emmc		/boot
+/boot			emmc		/dev/bootimg
 /misc			emmc		/dev/misc
-/recovery		emmc		/recovery
+/recovery		emmc		/dev/recovery
 /system			ext4		/dev/block/mmcblk0p4
 /cache			ext4		/dev/block/mmcblk0p5
 /data			ext4		/dev/block/mmcblk0p6
