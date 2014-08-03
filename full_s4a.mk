@@ -1,0 +1,1 @@
+device_s4a.mk
