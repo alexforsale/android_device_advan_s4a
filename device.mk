@@ -76,5 +76,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
+# package dari cm-10.1
 PRODUCT_PACKAGES := \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
+    e2fsck \
+    tune2fs
