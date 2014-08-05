@@ -43,17 +43,20 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
 
-# file ramdisk
+# prebuilt kernel
 PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel \
-    device/advan/s4a/rootdir/ueventd.rc:root/ueventd.rc \
-    device/advan/s4a/rootdir/fstab:root/fstab \
-    device/advan/s4a/rootdir/init.rc:root/init.rc
+    $(LOCAL_KERNEL):kernel
+
+# file ramdisk dari device/advan/s4a/Android.mk
+PRODUCT_PACKAGES := \
+    init.rc \
+    fstab \
+    ueventd.rc
 
 # file ramdisk recovery
-PRODUCT_COPY_FILES += \
-    device/advan/s4a/recovery/init.recovery.mt6572.rc:root/init.recovery.mt6572.rc \
-    device/advan/s4a/recovery/sec.ko:recovery/root/sec.ko
+PRODUCT_PACKAGES := \
+    init.recovery.mt6572.rc \
+    sec.ko
 
 # vold
 PRODUCT_COPY_FILES += \
