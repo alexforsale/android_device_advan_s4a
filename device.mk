@@ -58,6 +58,12 @@ PRODUCT_PACKAGES := \
     init.recovery.mt6572.rc \
     sec.ko
 
+# tambahan untuk default.prop
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    persist.mtk.aee.aed=on \
+    persist.service.acm.enable=0 \
+    ro.mount.fs=EXT4
+
 # vold
 PRODUCT_COPY_FILES += \
     device/advan/s4a/configs/vold.fstab:system/etc/vold.fstab \
