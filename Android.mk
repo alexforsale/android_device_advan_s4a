@@ -41,13 +41,12 @@ LOCAL_SRC_FILES		:= rootdir/ueventd.rc
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
-# ramdisk recovery
 include $(CLEAR_VARS)
 LOCAL_MODULE		:= init.recovery.mt6572.rc
 LOCAL_MODULE_TAGS	:= optional eng
 LOCAL_MODULE_CLASS	:= ETC
 LOCAL_SRC_FILES		:= recovery/init.recovery.mt6572.rc
-LOCAL_MODULE_PATH	:= $(TARGET_RECOVERY_ROOT_OUT)
+LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
 # TODO: pindahkan semua proprietary ke vendor/advan/s4a ?
