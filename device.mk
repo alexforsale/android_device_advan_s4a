@@ -15,7 +15,7 @@
 # inherit dari bagian non-open-source bila tersedia
 $(call inherit-product-if-exists, vendor/advan/s4a/s4a-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS := \
+DEVICE_PACKAGE_OVERLAYS += \
     device/advan/s4a/overlay
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -33,7 +33,7 @@ WIFI_BAND := 802_11_BG
 
 DEVICE_RESOLUTION := 480x854
 
-PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
     drm.service.enabled=true
@@ -48,13 +48,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 # file ramdisk dari device/advan/s4a/Android.mk
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     init.rc \
     fstab \
     ueventd.rc
 
 # file ramdisk recovery
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     init.recovery.mt6572.rc \
     sec.ko
 
@@ -83,7 +83,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml
 
 # package dari cm-10.1
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     e2fsck \
     tune2fs
