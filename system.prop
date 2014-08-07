@@ -23,3 +23,11 @@ ro.mediatek.chip_ver=S01
 ro.mediatek.version.branch=ALPS.JB3.MP
 ro.mediatek.version.sdk=1
 # end mediatek build properties
+
+#
+# system.prop for generic sdk
+#
+
+rild.libpath=/system/lib/mtk-ril.so
+rild.libargs=-d /dev/ttyC0
+
