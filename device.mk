@@ -86,4 +86,5 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
     e2fsck \
-    tune2fs
+    tune2fs \
+    audio_policy.stub
