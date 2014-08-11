@@ -1,6 +1,15 @@
 **device tree advan s4a untuk cm-10.1**
 ---
 
+##### modifikasi repo:
+* bootable/recovery
+* frameworks/native
+* frameworks/base
+* hardware/libhardware
+* hardware/libhardware_legacy
+* hardware/ril
+* system/core
+
 #### Progress cwm [link] [cmwr]:
 * 2014-08-04: Modifikasi bootable/recovery
 * 2014-08-03: sukses compile cwm recovery. Test backup sukses, belum coba restore, format, dan flash zip. USB mount storage belum berfungsi
