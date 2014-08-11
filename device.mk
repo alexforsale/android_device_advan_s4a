@@ -88,3 +88,5 @@ PRODUCT_PACKAGES += \
     e2fsck \
     tune2fs \
     audio_policy.stub
+
+$(call inherit-product-if-exists, vendor/mediatek/mt6572/mt6572-vendor.mk)
