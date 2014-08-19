@@ -305,14 +305,6 @@ LOCAL_MODULE_PATH	:= $(TARGET_OUT)/etc/ril
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE		:= p2p_supplicant.conf
-LOCAL_MODULE_TAGS	:= optional eng
-LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= configs/$(LOCAL_MODULE)
-LOCAL_MODULE_PATH	:= $(TARGET_OUT)/etc/wifi
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE		:= partition_permission.sh
 LOCAL_MODULE_TAGS	:= optional eng
 LOCAL_MODULE_CLASS	:= ETC
@@ -366,14 +358,6 @@ LOCAL_MODULE_TAGS	:= optional eng
 LOCAL_MODULE_CLASS	:= ETC
 LOCAL_SRC_FILES		:= configs/$(LOCAL_MODULE)
 LOCAL_MODULE_PATH	:= $(TARGET_OUT)/etc
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE		:= wpa_supplicant.conf
-LOCAL_MODULE_TAGS	:= optional eng
-LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= configs/$(LOCAL_MODULE)
-LOCAL_MODULE_PATH	:= $(TARGET_OUT)/etc/wifi
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
