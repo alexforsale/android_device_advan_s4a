@@ -1,0 +1,89 @@
+#!/bin/sh
+
+# Copyright (C) 2014 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#sbin/e2fsck
+#sbin/meta_tst
+#sbin/tune2fs
+
+# file - file yang dibutuhkan oleh init services
+system/bin/xlog
+system/bin/boot_logo_updater
+system/bin/mobile_log_d
+system/bin/pq
+system/lib/libjni_pq.so
+system/bin/dhcp6c
+system/bin/vtservice
+system/bin/matv
+system/lib/libmatv_cust.so
+system/bin/mtkbt
+system/bin/mtk_agpsd
+system/bin/mdlogger
+system/bin/dualmdlogger
+system/bin/msensord
+system/bin/s62xd
+system/bin/ami304d
+system/bin/memsicd
+system/bin/memsicd3416x
+system/bin/akmd8975
+system/bin/akmd8963
+system/bin/bmm050d
+system/bin/mc6420d
+system/bin/orientationd
+system/bin/geomagneticd
+system/bin/shutdown
+system/bin/nvram_agent_binder
+system/bin/thermal_manager
+system/bin/thermald
+system/bin/factory
+system/bin/nvram_daemon
+system/lib/libnvram_daemon_callback.so
+system/bin/ccci_mdinit
+system/bin/ccci_fsd
+system/bin/muxreport
+system/bin/gsm0710muxd
+system/bin/gsm0710muxdmd2
+system/bin/6620_launcher
+system/bin/6620_wmt_concurrency
+system/bin/6620_wmt_lpbk
+
+# kernel modules
+system/lib/modules/ccci.ko
+system/lib/modules/ccci_plat.ko
+system/lib/modules/devapc.ko
+system/lib/modules/devinfo.ko
+system/lib/modules/hid-logitech-dj.ko
+system/lib/modules/mtk_fm_drv.ko
+system/lib/modules/mtk_stp_bt.ko
+system/lib/modules/mtk_stp_gps.ko
+system/lib/modules/mtk_stp_wmt.ko
+system/lib/modules/mtk_wmt_wifi.ko
+system/lib/modules/scsi_tgt.ko
+system/lib/modules/scsi_wait_scan.ko
+system/lib/modules/sec.ko
+system/lib/modules/vcodec_kernel_driver.ko
+system/lib/modules/wlan_mt6582.ko
+
+# lib/hw
+system/lib/hw/camera.default.so
+
+#lib
+system/lib/librilmtk.so
+system/lib/librilmtkmd2.so
+system/lib/mtk-ril.so
+system/lib/mtk-rilmd2.so
+
+# vold
+system/bin/fsck_msdos_mtk
