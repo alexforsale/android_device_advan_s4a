@@ -14,34 +14,36 @@
 
 USE_CAMERA_STUB := true
 
-# include versi proprietary
+# inherit from the proprietary version
 -include vendor/advan/s4a/BoardConfigVendor.mk
 
-TARGET_BOARD_INFO_FILE := device/advan/s4a/board-info.txt
-
-# ramdisk
-TARGET_PROVIDES_INIT_RC := true
-TARGET_PREBUILT_KERNEL := device/advan/s4a/kernel
-TARGET_RECOVERY_KERNEL := device/advan/s4a/kernel/recovery/recovery_kernel
-
-# makefile khusus untuk boot.img mediatek
-BOARD_CUSTOM_BOOTIMG_MK := device/advan/s4a/prebuilt_boot.mk
-
-TARGET_BOARD_PLATFORM := mt6572
-# TARGET_BOARD_PLATFORM_GPU := ARM-Mali-400 MP
-TARGET_BOOTLOADER_BOARD_NAME := s4a
-
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_VARIANT := cortex-a7
-ARCH_ARM_HAVE_TLS_REGISTER := true
-
-TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_SPECIFIC_HEADER_PATH += device/advan/s4a/include
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
+
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_BOARD_PLATFORM := mt6572
+TARGET_BOARD_PLATFORM_GPU := ARM-Mali-400 MP
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
+ARCH_ARM_HAVE_NEON := true
+
+TARGET_BOOTLOADER_BOARD_NAME := s4a
+
+BOARD_KERNEL_CMDLINE := 
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_CUSTOM_BOOTIMG_MK := device/advan/s4a/prebuilt_boot.mk
+
+TARGET_PREBUILT_KERNEL := device/advan/s4a/kernel
+
+TARGET_PREBUILT_INIT := device/advan/s4a/rootdir/init
+TARGET_PROVIDES_INIT_RC := true
+TARGET_PROVIDES_UEVENTD_RC := true
 
 ## XXX: didapat melalui terminal emulator / adb shell dengan ketik
 ## $ cat /proc/dumchar_info
@@ -49,8 +51,13 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 0x600000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 6488064 # TODO: cari value yang pas
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 681574400 # value dari fdisk -l /dev/block/mmcblk0p4
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1388314624 #value dari fdisk -l /dev/block/mmcblk0p6
-BOARD_CACHEIMAGE_PARTITION_SIZE := 0x17800000 
+BOARD_CACHEIMAGE_PARTITION_SIZE := 394264576
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
+
+# eMMC support
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
 # patch commit 01b1da4 dari github.com/BSydz-MTK/android_bootable_recovery
 # tambahan support untuk partisi mediatek 
@@ -61,31 +68,34 @@ CWM_EMMC_RECOVERY_DEVICE_SIZE := 0x00600000
 CWM_EMMC_UBOOT_DEVICE_NAME := /dev/uboot
 CWM_EMMC_UBOOT_DEVICE_SIZE := 0x00060000
 
-# didapat ketika melakukan unpack boot.img
-BOARD_KERNEL_CMDLINE := 
-BOARD_KERNEL_BASE := 0x10000000
-BOARD_KERNEL_PAGESIZE := 2048
+# Recovery
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_UMS_LUNFILE := "/sys/devices/platform/mt_usb/gadget/lun%d/file"
 
-BOARD_UMS_LUNFILE := /sys/devices/platform/mt_usb/gadget/lun%d/file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/gadget/lun%d/file
+# bluetooth
+BOARD_HAVE_BLUETOOTH  := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/advan/s4a/bluetooth
 
 # Graphics
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/advan/s4a/configs/egl.cfg
+BOARD_EGL_CFG := device/advan/s4a/egl.cfg
 
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
+# Vold
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/mt_usb/gadget/lun%d/file"
+BOARD_VOLD_MAX_PARTITIONS := 19
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 
-# recovery
-BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
+# MTK, Infinity, 20090720, Add WiFi {
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+BOARD_P2P_SUPPLICANT_DRIVER := NL80211
+HAVE_CUSTOM_WIFI_DRIVER_2 := true
+HAVE_INTERNAL_WPA_SUPPLICANT_CONF := true
+HAVE_CUSTOM_WIFI_HAL := mediatek
+WPA_SUPPLICANT_VERSION := VER_0_6_X
+P2P_SUPPLICANT_VERSION := VER_0_8_X
+# MTK, Infinity, 20090720, Add WiFi }
 
-# Skip build droiddoc (untuk menghemat waktu build)
-BOARD_SKIP_ANDROID_DOC_BUILD := true
-# agar size image lebih kecil
-SMALLER_FONT_FOOTPRINT := true
-
-# TWRP
-DEVICE_RESOLUTION := 480x800
-TW_BRIGHTNESS_PATH := "sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness"
-TW_MAX_BRIGHTNESS := 255
+# untuk ro.product.device dan ro.build.product stock rom
+TARGET_OTA_ASSERT_DEVICE := Vandroid,s4a
