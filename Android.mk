@@ -11,50 +11,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+
+# WARNING: Everything listed here will be built on ALL platforms,
+# including x86, the emulator, and the SDK.  Modules must be uniquely
+# named (liblights.tuna), and must build everywhere, or limit themselves
+# to only building on ARM if they include assembly. Individual makefiles
+# are responsible for having their own logic, for fine-grained control.
 
 LOCAL_PATH := $(call my-dir)
+ifeq ($(TARGET_DEVICE),s4a)
 
-# untuk saat ini menggunakan init.rc dari stock boot.img
-ifeq ($(TARGET_PROVIDES_INIT_RC),true)
-include $(CLEAR_VARS)
-LOCAL_MODULE		:= init.rc
-LOCAL_MODULE_TAGS	:= optional eng
-LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= rootdir/init.rc
-LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
-include $(BUILD_PREBUILT)
-endif # TARGET_PROVIDES_INIT_RC
+include $(call all-makefiles-under,$(LOCAL_PATH))
 
-include $(CLEAR_VARS)
-LOCAL_MODULE		:= fstab
-LOCAL_MODULE_TAGS	:= optional eng
-LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= rootdir/fstab
-LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE		:= ueventd.rc
-LOCAL_MODULE_TAGS	:= optional eng
-LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= rootdir/ueventd.rc
-LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE		:= init.recovery.mt6572.rc
-LOCAL_MODULE_TAGS	:= optional eng
-LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= recovery/init.recovery.mt6572.rc
-LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
-include $(BUILD_PREBUILT)
-
-# TODO: pindahkan semua proprietary ke vendor/advan/s4a ?
-include $(CLEAR_VARS)
-LOCAL_MODULE		:= sec.ko
-LOCAL_MODULE_TAGS	:= optional eng
-LOCAL_MODULE_CLASS	:= ETC
-LOCAL_SRC_FILES		:= recovery/sec.ko
-LOCAL_MODULE_PATH	:= $(TARGET_RECOVERY_ROOT_OUT)
-include $(BUILD_PREBUILT)
-
+endif #TARGET_DEVICE

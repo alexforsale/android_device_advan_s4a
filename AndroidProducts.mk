@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_s4a.mk
+    $(LOCAL_DIR)/full_s4a.mk

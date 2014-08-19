@@ -3,12 +3,11 @@
 
 ##### modifikasi repo:
 * bootable/recovery
-* frameworks/native
-* frameworks/base
-* hardware/libhardware
-* hardware/libhardware_legacy
-* hardware/ril
+* system/bluetooth
 * system/core
+* system/extras
+* system/netd
+* system/vold
 
 #### Progress cwm [link] [cmwr]:
 * 2014-08-04: Modifikasi bootable/recovery

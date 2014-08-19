@@ -1,17 +1,3 @@
-# Copyright (C) 2014 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 /dev/null                 0666   root       root
 /dev/zero                 0666   root       root
 /dev/full                 0666   root       root
@@ -141,3 +127,27 @@
 
 #MTK BTIF driver
 /dev/btif 0660  shell system
+
+/sys/devices/system/cpu/cpufreq ondemand/boostfreq   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/boostpulse  0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/boosttime   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/sampling_rate   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/io_is_busy      0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/down_differential   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/powersave_bias  0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/sampling_down_factor    0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/up_threshold   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/up_threshold_multi_core   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/down_differential_multi_core   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/optimal_freq   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/sync_freq   0664    system  system
+/sys/devices/system/cpu/cpufreq ondemand/up_threshold_any_cpu_load   0664    system  system
+
+/sys/devices/system/cpu/cpufreq interactive/boostpulse  0664    system  system
+/sys/devices/system/cpu/cpufreq interactive/timer_rate  0664    system  system
+/sys/devices/system/cpu/cpufreq interactive/min_sample_rate 0664    system  system
+/sys/devices/system/cpu/cpufreq interactive/min_sample_time 0664    system  system
+/sys/devices/system/cpu/cpufreq interactive/hispeed_freq    0664    system  system
+/sys/devices/system/cpu/cpufreq interactive/go_hispeed_load 0664    system  system
+/sys/devices/system/cpu/cpufreq interactive/above_hispeed_delay 0664    system  system
+/sys/devices/system/cpu/cpufreq interactive/io_is_busy      0664    system  system

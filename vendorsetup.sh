@@ -1,29 +1,22 @@
-#
 # Copyright (C) 2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+# This file is executed by build/envsetup.sh, and can use anything
+# defined in envsetup.sh.
 #
+# In particular, you can add lunch options with the add_lunch_combo
+# function: add_lunch_combo generic-eng
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, device/advan/s4a/s4a.mk)
-
-## Device identifier. This must come after all inclusions
-PRODUCT_NAME := full_s4a
-PRODUCT_DEVICE := s4a
-PRODUCT_BRAND := advan
-PRODUCT_MANUFACTURER := advan
-PRODUCT_MODEL := s4a
-
-# use english only
-PRODUCT_LOCALES := en_US
+add_lunch_combo full_s4a-userdebug
+add_lunch_combo cm_s4a-userdebug
