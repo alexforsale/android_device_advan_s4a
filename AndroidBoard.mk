@@ -105,8 +105,6 @@ LOCAL_SRC_FILES		:= rootdir/$(LOCAL_MODULE)
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
-# hilangkan tanda # dibawah ini dan taruh init.rc yang akan digunakan di folder rootdir
-ifeq ($(TARGET_PROVIDES_INIT_RC),true)
 include $(CLEAR_VARS)
 LOCAL_MODULE		:= init.rc
 LOCAL_MODULE_TAGS	:= optional eng
@@ -114,7 +112,6 @@ LOCAL_MODULE_CLASS	:= ETC
 LOCAL_SRC_FILES		:= rootdir/$(LOCAL_MODULE)
 LOCAL_MODULE_PATH	:= $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
-endif # TARGET_PROVIDES_INIT_RC
 
 include $(CLEAR_VARS)
 LOCAL_MODULE		:= init.trace.rc

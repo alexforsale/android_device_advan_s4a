@@ -50,9 +50,7 @@ ROOTFILES += init.modem.rc
 ROOTFILES += init.no_ssd.rc
 ROOTFILES += init.project.rc
 ROOTFILES += init.protect.rc
-ifeq ($(TARGET_PROVIDES_INIT_RC),true)
 ROOTFILES += init.rc
-endif
 ROOTFILES += init.trace.rc
 ROOTFILES += init.usb.rc
 ROOTFILES += init.xlog.rc
