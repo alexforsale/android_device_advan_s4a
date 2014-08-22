@@ -74,6 +74,7 @@ PRODUCT_PACKAGES += $(CONFIGSFILES)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/sbin/e2fsck:$(TARGET_OUT)/root/sbin/e2fsck \
+    $(LOCAL_PATH)/rootdir/sbin/meta_tst:$(TARGET_OUT)/root/sbin/meta_tst \
     $(LOCAL_PATH)/rootdir/sbin/tune2fs:$(TARGET_OUT)/root/sbin/tune2fs
 
 # package dari cm-10.1
