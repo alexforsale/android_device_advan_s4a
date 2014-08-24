@@ -27,3 +27,12 @@ PRODUCT_MODEL := s4a
 
 # use english only
 PRODUCT_LOCALES := en_US
+
+# tambahan untuk default.prop
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.secure=0 \
+    ro.adb.secure=0 \
+    persist.mtk.aee.aed=on \
+    persist.service.acm.enable=0 \
+    ro.mount.fs=EXT4
+

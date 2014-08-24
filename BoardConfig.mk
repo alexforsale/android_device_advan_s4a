@@ -14,6 +14,9 @@
 
 USE_CAMERA_STUB := true
 
+# inherit from the mt6572 common
+-include device/advan/mt6572-common/BoardConfigCommon.mk
+
 # inherit from the proprietary version
 -include vendor/advan/s4a/BoardConfigVendor.mk
 
@@ -37,22 +40,21 @@ TARGET_BOOTLOADER_BOARD_NAME := s4a
 BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_CUSTOM_BOOTIMG_MK := device/advan/s4a/prebuilt_boot.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/advan/mt6572-common/prebuilt_boot.mk
 
 TARGET_PREBUILT_KERNEL := device/advan/s4a/kernel
 
-TARGET_PREBUILT_INIT := device/advan/s4a/rootdir/init
-TARGET_PROVIDES_INIT_RC := true
-TARGET_PROVIDES_UEVENTD_RC := true
-
 ## XXX: didapat melalui terminal emulator / adb shell dengan ketik
 ## $ cat /proc/dumchar_info
+#BOARD_PROTECT_FIMAGE_PARTITION_SIZE:=10M
+#BOARD_PROTECT_SIMAGE_PARTITION_SIZE:=10M
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x600000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 6488064 # TODO: cari value yang pas
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 681574400 # value dari fdisk -l /dev/block/mmcblk0p4
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1388314624 #value dari fdisk -l /dev/block/mmcblk0p6
 BOARD_CACHEIMAGE_PARTITION_SIZE := 394264576
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+#BOARD_FATIMAGE_PARTITION_SIZE:=0M
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # eMMC support
@@ -79,7 +81,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/advan/s4a/bluetooth
 
 # Graphics
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/advan/s4a/egl.cfg
+BOARD_EGL_CFG := device/advan/mt6572-common/configs/egl.cfg
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/mt_usb/gadget/lun%d/file"

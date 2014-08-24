@@ -14,10 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#sbin/e2fsck
-#sbin/meta_tst
-#sbin/tune2fs
-
 # file - file yang dibutuhkan oleh init services
 system/bin/xlog
 system/bin/boot_logo_updater
@@ -49,7 +45,6 @@ system/bin/thermal_manager
 system/bin/thermald
 system/bin/factory
 system/bin/nvram_daemon
-system/lib/libnvram_daemon_callback.so
 system/bin/ccci_mdinit
 system/bin/ccci_fsd
 system/bin/muxreport
@@ -58,6 +53,10 @@ system/bin/gsm0710muxdmd2
 system/bin/6620_launcher
 system/bin/6620_wmt_concurrency
 system/bin/6620_wmt_lpbk
+system/bin/rild
+system/bin/rildmd2
+system/bin/pppd_dt
+system/bin/pppd
 
 # kernel modules
 system/lib/modules/ccci.ko
@@ -76,14 +75,34 @@ system/lib/modules/sec.ko
 system/lib/modules/vcodec_kernel_driver.ko
 system/lib/modules/wlan_mt6582.ko
 
+# lib
+system/lib/libdpframework.so
+system/lib/libm4u.so
+system/lib/libaudiocustparam.so
+system/lib/libaed.so
+system/lib/libmtk_drvb.so
+system/lib/libaudio.primary.default.so
+system/lib/libblisrc.so
+system/lib/libspeech_enh_lib.so
+system/lib/libaudiosetting.so
+system/lib/libaudiocompensationfilter.so
+system/lib/libbessound_mtk.so
+system/lib/libnvram.so
+system/lib/libcustom_nvram.so
+system/lib/libnvram_daemon_callback.so
+system/lib/libfile_op.so
+system/lib/libhwm.so
+
 # lib/hw
 system/lib/hw/camera.default.so
+system/lib/hw/hwcomposer.mt6572.so
+system/lib/hw/libaudio.r_submix.default.so
+system/lib/hw/gps.default.so
+system/lib/hw/libaudio.usb.default.so
 
-#lib
-system/lib/librilmtk.so
-system/lib/librilmtkmd2.so
-system/lib/mtk-ril.so
-system/lib/mtk-rilmd2.so
+system/lib/egl/libEGL_mali.so
+system/lib/egl/libGLESv1_CM_mali.so
+system/lib/egl/libGLESv2_mali.so
 
 # vold
 system/bin/fsck_msdos_mtk
