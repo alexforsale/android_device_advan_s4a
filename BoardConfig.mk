@@ -14,9 +14,6 @@
 
 USE_CAMERA_STUB := true
 
-# inherit from the mt6572 common
--include device/advan/mt6572-common/BoardConfigCommon.mk
-
 # inherit from the proprietary version
 -include vendor/advan/s4a/BoardConfigVendor.mk
 
@@ -40,7 +37,8 @@ TARGET_BOOTLOADER_BOARD_NAME := s4a
 BOARD_KERNEL_CMDLINE := 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_CUSTOM_BOOTIMG_MK := device/advan/mt6572-common/prebuilt_boot.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/advan/s4a/prebuilt_boot.mk
+TARGET_PROVIDES_INIT_RC := true
 
 TARGET_PREBUILT_KERNEL := device/advan/s4a/kernel
 
@@ -81,7 +79,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/advan/s4a/bluetooth
 
 # Graphics
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/advan/mt6572-common/configs/egl.cfg
+BOARD_EGL_CFG := device/advan/s4a/configs/egl.cfg
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/mt_usb/gadget/lun%d/file"

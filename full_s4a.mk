@@ -36,3 +36,12 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.service.acm.enable=0 \
     ro.mount.fs=EXT4
 
+# prebuilt binary ramdisk
+PRODUCT_COPY_FILES += \
+    device/advan/s4a/prebuilt/e2fsck:root/sbin/e2fsck \
+    device/advan/s4a/prebuilt/meta_tst:root/sbin/meta_tst \
+    device/advan/s4a/prebuilt/tune2fs:root/sbin/tune2fs
+
+# prebuilt binary ramdisk recovery
+PRODUCT_COPY_FILES += \
+    device/advan/s4a/prebuilt/sec.ko:recovery/root/sec.ko

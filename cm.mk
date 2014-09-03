@@ -32,25 +32,7 @@ $(call inherit-product, device/advan/s4a/full_s4a.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := s4a
-PRODUCT_NAME := cm_s4a #$(TARGET_PRODUCT)
+PRODUCT_NAME := cm_s4a
 PRODUCT_BRAND := advan
 PRODUCT_MODEL := s4a
 PRODUCT_MANUFACTURER := advan
-
-ROOTFILES += custom_build_verno
-ROOTFILES += fstab.mt6572
-ROOTFILES += init.rc
-ROOTFILES += init.trace.rc
-ROOTFILES += init.usb.rc
-ROOTFILES += ueventd.rc
-
-CONFIGSFILES += android.hardware.microphone.xml
-CONFIGSFILES += android.software.live_wallpaper.xml
-CONFIGSFILES += com.android.location.provider.xml
-CONFIGSFILES += drm_chmod
-CONFIGSFILES += hid-keyboard.idc
-CONFIGSFILES += hid-keyboard.kcm
-CONFIGSFILES += hid-keyboard.kl
-CONFIGSFILES += mtk-kpd.kl
-CONFIGSFILES += ProjectConfig.mk
-CONFIGSFILES += throttle.sh

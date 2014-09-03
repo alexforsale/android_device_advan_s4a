@@ -106,3 +106,26 @@ system/lib/egl/libGLESv2_mali.so
 
 # vold
 system/bin/fsck_msdos_mtk
+
+# firmware
+system/etc/firmware/catcher_filter_1_wg_n.bin
+system/etc/firmware/modem_1_wg_n.img
+system/etc/firmware/mt6572_82_patch_e1_0_hdr.bin
+system/etc/firmware/mt6572_82_patch_e1_1_hdr.bin
+system/etc/firmware/S_ANDRO_SFL.ini
+system/etc/firmware/WIFI_RAM_CODE
+system/etc/firmware/WIFI_RAM_CODE_E6
+system/etc/firmware/WIFI_RAM_CODE_MT6582
+system/etc/firmware/WIFI_RAM_CODE_MT6628
+
+# firmware/mt6627
+system/etc/firmware/mt6627/mt6627_fm_v1_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v1_patch.bin
+system/etc/firmware/mt6627/mt6627_fm_v2_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v2_patch.bin
+system/etc/firmware/mt6627/mt6627_fm_v3_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v3_patch.bin
+system/etc/firmware/mt6627/mt6627_fm_v4_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v4_patch.bin
+system/etc/firmware/mt6627/mt6627_fm_v5_coeff.bin
+system/etc/firmware/mt6627/mt6627_fm_v5_patch.bin

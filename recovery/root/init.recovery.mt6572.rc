@@ -21,33 +21,32 @@ on init
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
-    
-# BSydz Add support for internal storage
-    export INTERNAL_STORAGE /internal_sd
 
     symlink /system/etc /etc
 
     mkdir /boot
     mkdir /recovery
-    mkdir /misc
     mkdir /sdcard
-    
-# BSydz Add support for internal storage
     mkdir /internal_sd
-    
+    mkdir /external_sd
     mkdir /sd-ext
+    mkdir /datadata
+    mkdir /emmc
     mkdir /system
     mkdir /data
     mkdir /cache
     mount /tmp /tmp tmpfs
-    
+    insmod /sec.ko
+    mknod /dev/sec c 182 0
+    chmod 0660 /dev/sec
+
     chown root shell /tmp
     chmod 0775 /tmp
 
     write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 0BB4
-    write /sys/class/android_usb/android0/idProduct 0C03
-    write /sys/class/android_usb/android0/functions mass_storage,adb
+    write /sys/class/android_usb/android0/idVendor 18D1
+    write /sys/class/android_usb/android0/idProduct D001
+    write /sys/class/android_usb/android0/functions adb
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
@@ -75,13 +74,3 @@ on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
     restart adbd
     write /sys/class/android_usb/android0/enable 1
-
-on property:sys.storage.ums_enabled=1
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/functions adb,mass_storage
-    write /sys/class/android_usb/android0/enable 1
-
-on property:sys.storage.ums_enabled=0
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/functions adb
-    write /sys/class/android_usb/android0/enable ${service.adb.root}

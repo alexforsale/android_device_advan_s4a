@@ -18,7 +18,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 $(call inherit-product-if-exists, vendor/advan/s4a/s4a-vendor.mk)
-$(call inherit-product-if-exists, device/advan/mt6572-common/mt6572-common.mk)
 $(call inherit-product, build/target/product/full.mk)
 
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
@@ -36,29 +35,87 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-PRODUCT_PACKAGES += $(ROOTFILES)
-PRODUCT_PACKAGES += $(CONFIGSFILES)
+# ramdisk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/advanced_meta_init.rc:root/advanced_meta_init.rc \
+    $(LOCAL_PATH)/configs/custom_build_verno:root/custom_build_verno \
+    $(LOCAL_PATH)/configs/factory_init.project.rc:root/factory_init.project.rc \
+    $(LOCAL_PATH)/configs/factory_init.rc:root/factory_init.rc \
+    $(LOCAL_PATH)/configs/fstab:root/fstab \
+    $(LOCAL_PATH)/configs/init.aee.customer.rc:root/init.aee.customer.rc \
+    $(LOCAL_PATH)/configs/init.charging.rc:root/init.charging.rc \
+    $(LOCAL_PATH)/configs/init.fon.rc:root/init.fon.rc \
+    $(LOCAL_PATH)/configs/init.modem.rc:root/init.modem.rc \
+    $(LOCAL_PATH)/configs/init.no_ssd.rc:root/init.no_ssd.rc \
+    $(LOCAL_PATH)/configs/init.project.rc:root/init.project.rc \
+    $(LOCAL_PATH)/configs/init.protect.rc:root/init.protect.rc \
+    $(LOCAL_PATH)/configs/init.rc:root/init.rc \
+    $(LOCAL_PATH)/configs/init.trace.rc:root/init.trace.rc \
+    $(LOCAL_PATH)/configs/init.usb.rc:root/init.usb.rc \
+    $(LOCAL_PATH)/configs/init.xlog.rc:root/init.xlog.rc \
+    $(LOCAL_PATH)/configs/meta_init.modem.rc:root/meta_init.modem.rc \
+    $(LOCAL_PATH)/configs/meta_init.project.rc:root/meta_init.project.rc \
+    $(LOCAL_PATH)/configs/meta_init.rc:root/meta_init.rc \
+    $(LOCAL_PATH)/configs/ueventd.rc:root/ueventd.rc
 
-# packages dari device/advan/mt6572-common
-PRODUCT_PACKAGES += \
-    ACCDET.kl \
-    audio_policy.conf \
-    fstab.mt6572 \
-    hid-keyboard.idc \
-    hid-keyboard.kcm \
-    hid-keyboard.kl \
-    init.modem.rc \
-    init.mt6572.rc \
-    init.mt6572.usb.rc \
-    init.protect.rc \
-    lights.default \
-    mtk-kpd.kl \
-    partition_permission.sh \
-    sensors.default \
-    ueventd.mt6572.rc \
-    vold.fstab
+# keylayout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ACCDET.kl:system/usr/keylayout/ACCDET.kl \
+    $(LOCAL_PATH)/configs/hid-keyboard.kl:system/usr/keylayout/hid-keyboard.kl \
+    $(LOCAL_PATH)/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
 
-# package dari cm-10.1
-PRODUCT_PACKAGES += \
-    librs_jni \
-    com.android.future.usb.accessory
+# idc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hid-keyboard.idc:system/usr/idc/hid-keyboard.idc
+
+# keychars
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hid-keyboard.kcm:system/usr/keychars/hid-keyboard.kcm
+
+# etc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/partition_permission.sh:system/etc/partition_permission.sh \
+    $(LOCAL_PATH)/configs/throttle.sh:system/etc/throttle.sh \
+    $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab
+
+# etc/wifi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+    $(LOCAL_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
+# etc/wide-dhcpv6
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/dhcp6c.conf:system/etc/wide-dhcpv6/dhcp6c.conf \
+    $(LOCAL_PATH)/configs/dhcp6c.script:system/etc/wide-dhcpv6/dhcp6c.script \
+    $(LOCAL_PATH)/configs/dhcp6cctlkey:system/etc/wide-dhcpv6/dhcp6cctlkey \
+    $(LOCAL_PATH)/configs/dhcp6cDNS.conf:system/etc/wide-dhcpv6/dhcp6cDNS.conf \
+    $(LOCAL_PATH)/configs/dhcp6s.conf:system/etc/wide-dhcpv6/dhcp6s.conf
+
+# etc/permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/android.hardware.microphone.xml:system/etc/permissions/android.hardware.microphone.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+    frameworks/native/data/etc/android.hardware.faketouch.xml:system/etc/permissions/android.hardware.faketouch.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+
+# etc/firmware
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/WMT_SOC.cfg:system/etc/firmware/WMT_SOC.cfg
+
