@@ -58,6 +58,13 @@ system/bin/rildmd2
 system/bin/pppd_dt
 system/bin/pppd
 
+system/bin/aee
+system/bin/aee_aed
+system/bin/aee_core_forwarder
+system/bin/aee_dumpstate
+system/bin/rtt
+system/bin/thermal
+
 # kernel modules
 system/lib/modules/ccci.ko
 system/lib/modules/ccci_plat.ko
@@ -92,6 +99,10 @@ system/lib/libcustom_nvram.so
 system/lib/libnvram_daemon_callback.so
 system/lib/libfile_op.so
 system/lib/libhwm.so
+system/lib/librilmtk.so
+system/lib/librilmtkmd2.so
+system/lib/mtk-ril.so
+system/lib/mtk-rilmd2.so
 
 # lib/hw
 system/lib/hw/camera.default.so
@@ -99,6 +110,7 @@ system/lib/hw/hwcomposer.mt6572.so
 system/lib/hw/libaudio.r_submix.default.so
 system/lib/hw/gps.default.so
 system/lib/hw/libaudio.usb.default.so
+system/lib/hw/gralloc.mt6572.so
 
 system/lib/egl/libEGL_mali.so
 system/lib/egl/libGLESv1_CM_mali.so
@@ -129,3 +141,8 @@ system/etc/firmware/mt6627/mt6627_fm_v4_coeff.bin
 system/etc/firmware/mt6627/mt6627_fm_v4_patch.bin
 system/etc/firmware/mt6627/mt6627_fm_v5_coeff.bin
 system/etc/firmware/mt6627/mt6627_fm_v5_patch.bin
+
+# etc/.tp
+system/etc/.tp/.ht120.mtc
+system/etc/.tp/thermal.conf
+system/etc/.tp/thermal.off.conf
