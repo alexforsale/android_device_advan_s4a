@@ -22,9 +22,6 @@ DEVICEBASE=../../../vendor/$VENDOR/$DEVICE/proprietary
 
 echo "tarik file - file dari device..."
 echo "pastikan device telah di root agar tidak terjadi konflik permission file..."
-echo "file -file proprietary mediatek"
-
-../../advan/mt6572-common/extract-files.sh
 
 echo "file -file proprietary s4a"
 

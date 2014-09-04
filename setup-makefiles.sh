@@ -21,7 +21,6 @@ DEVICEMAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 ANDROIDBOARDVENDOR=../../../$OUTDIR/AndroidBoardVendor.mk
 DEVICEVENDOR=../../../$OUTDIR/$DEVICE-vendor.mk
 BOARDCONFIGVENDOR=../../../$OUTDIR/BoardConfigVendor.mk
-PROJECTCONFIG=device/advan/s4a/configs/ProjectConfig.mk
 
 (cat << EOF) > $ANDROIDBOARDVENDOR
 # Copyright (C) 2014 The Android Open Source Project
@@ -115,5 +114,4 @@ done
 MTK := true
 MTK_KERNEL_POWER_OFF_CHARGING := true
 
-include $PROJECTCONFIG
 EOF
