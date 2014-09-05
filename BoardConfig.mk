@@ -70,7 +70,6 @@ CWM_EMMC_UBOOT_DEVICE_SIZE := 6291456
 
 # Recovery
 TARGET_PREBUILT_RECOVERY_KERNEL := device/advan/s4a/recovery-kernel
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_UMS_LUNFILE := "/sys/devices/platform/mt_usb/gadget/lun0/file"
 

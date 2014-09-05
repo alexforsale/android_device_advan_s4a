@@ -33,7 +33,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
     ro.adb.secure=0 \
     persist.mtk.aee.aed=on \
-    persist.sys.usb.config=mtp \
     persist.service.acm.enable=0 \
     ro.mount.fs=EXT4
 
