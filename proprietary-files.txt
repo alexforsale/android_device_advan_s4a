@@ -115,6 +115,10 @@ system/lib/hw/gralloc.mt6572.so
 system/lib/egl/libEGL_mali.so
 system/lib/egl/libGLESv1_CM_mali.so
 system/lib/egl/libGLESv2_mali.so
+system/lib/libMali.so
+system/lib/libion.so
+
+system/lib/libcam.utils.so
 
 # vold
 system/bin/fsck_msdos_mtk
