@@ -15,7 +15,7 @@
 # limitations under the License.
 
 # file - file yang dibutuhkan oleh init services
-system/bin/xlog
+# system/bin/xlog
 system/bin/boot_logo_updater
 system/bin/mobile_log_d
 system/bin/pq
