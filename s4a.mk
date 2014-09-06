@@ -37,26 +37,13 @@ PRODUCT_COPY_FILES += \
 
 # ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/advanced_meta_init.rc:root/advanced_meta_init.rc \
     $(LOCAL_PATH)/configs/custom_build_verno:root/custom_build_verno \
-    $(LOCAL_PATH)/configs/factory_init.project.rc:root/factory_init.project.rc \
-    $(LOCAL_PATH)/configs/factory_init.rc:root/factory_init.rc \
-    $(LOCAL_PATH)/configs/fstab:root/fstab \
-    $(LOCAL_PATH)/configs/init.aee.customer.rc:root/init.aee.customer.rc \
-    $(LOCAL_PATH)/configs/init.charging.rc:root/init.charging.rc \
-    $(LOCAL_PATH)/configs/init.fon.rc:root/init.fon.rc \
+    $(LOCAL_PATH)/configs/fstab.mt6572:root/fstab.mt6572 \
     $(LOCAL_PATH)/configs/init.modem.rc:root/init.modem.rc \
-    $(LOCAL_PATH)/configs/init.no_ssd.rc:root/init.no_ssd.rc \
-    $(LOCAL_PATH)/configs/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/configs/init.protect.rc:root/init.protect.rc \
-    $(LOCAL_PATH)/configs/init.rc:root/init.rc \
-    $(LOCAL_PATH)/configs/init.trace.rc:root/init.trace.rc \
-    $(LOCAL_PATH)/configs/init.usb.rc:root/init.usb.rc \
-    $(LOCAL_PATH)/configs/init.xlog.rc:root/init.xlog.rc \
-    $(LOCAL_PATH)/configs/meta_init.modem.rc:root/meta_init.modem.rc \
-    $(LOCAL_PATH)/configs/meta_init.project.rc:root/meta_init.project.rc \
-    $(LOCAL_PATH)/configs/meta_init.rc:root/meta_init.rc \
-    $(LOCAL_PATH)/configs/ueventd.rc:root/ueventd.rc
+    $(LOCAL_PATH)/configs/init.mt6572.rc:root/init.mt6572.rc \
+    $(LOCAL_PATH)/configs/init.mt6572.usb.rc:root/init.mt6572.usb.rc \
+    $(LOCAL_PATH)/configs/ueventd.mt6572.rc:root/ueventd.mt6572.rc
 
 # keylayout
 PRODUCT_COPY_FILES += \
